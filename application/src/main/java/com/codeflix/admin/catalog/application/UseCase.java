@@ -1,10 +1,6 @@
 package com.codeflix.admin.catalog.application;
 
-import com.codeflix.admin.catalog.domain.category.Category;
+public abstract class UseCase<IN, OUT> {
 
-public class UseCase {
-
-    public Category execute() {
-        return null;
-    }
+    public abstract OUT execute(IN anIn);
 }
