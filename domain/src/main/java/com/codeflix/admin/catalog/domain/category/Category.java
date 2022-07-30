@@ -5,7 +5,7 @@ import com.codeflix.admin.catalog.domain.validation.ValidationHandler;
 
 import java.time.Instant;
 
-public class Category extends AggregateRoot<CategoryID> {
+public class Category extends AggregateRoot<CategoryID> implements Cloneable {
 
     private String name;
     private String description;
@@ -15,12 +15,12 @@ public class Category extends AggregateRoot<CategoryID> {
     private Instant deletedAt;
 
     private Category(final CategoryID anId,
-                    final String aName,
-                    final String aDescription,
-                    final boolean isActive,
-                    final Instant aCreationDate,
-                    final Instant anUpdateDate,
-                    final Instant aDeleteAt
+                     final String aName,
+                     final String aDescription,
+                     final boolean isActive,
+                     final Instant aCreationDate,
+                     final Instant anUpdateDate,
+                     final Instant aDeleteAt
     ) {
         super(anId);
         this.name = aName;
@@ -37,6 +37,7 @@ public class Category extends AggregateRoot<CategoryID> {
         final var deletedAt = isActive ? null : now;
         return new Category(id, aName, aDescription, isActive, now, now, deletedAt);
     }
+
     public Category activate() {
         this.deletedAt = null;
         this.active = true;
@@ -45,7 +46,7 @@ public class Category extends AggregateRoot<CategoryID> {
     }
 
     public Category deactivate() {
-        if(getDeletedAt() == null) {
+        if (getDeletedAt() == null) {
             this.deletedAt = Instant.now();
         }
         this.active = false;
@@ -54,7 +55,7 @@ public class Category extends AggregateRoot<CategoryID> {
     }
 
     public Category update(final String aName, final String aDescription, final boolean isActive) {
-        if(isActive) {
+        if (isActive) {
             activate();
         } else {
             deactivate();
@@ -96,5 +97,14 @@ public class Category extends AggregateRoot<CategoryID> {
 
     public Instant getDeletedAt() {
         return deletedAt;
+    }
+
+    @Override
+    public Category clone() {
+        try {
+            return (Category) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
