@@ -21,17 +21,17 @@ public class Main {
         SpringApplication.run(WebServerConfig.class, args);
     }
 
-    @Bean
-    @DependsOnDatabaseInitialization
-    ApplicationRunner runner(@Autowired CreateCategoryUseCase createCategoryUseCase,
-                             @Autowired UpdateCategoryUseCase updateCategoryUseCase,
-                             @Autowired DeleteCategoryUseCase deleteCategoryUseCase,
-                             @Autowired ListCategoriesUseCase listCategoriesUseCase,
-                             @Autowired GetCategoryByIdUseCase getCategoryByIdUseCase
-    ) {
-        return args -> {
-
-        };
-    }
+//    @Bean
+//    @DependsOnDatabaseInitialization
+//    ApplicationRunner runner(@Autowired CreateCategoryUseCase createCategoryUseCase,
+//                             @Autowired UpdateCategoryUseCase updateCategoryUseCase,
+//                             @Autowired DeleteCategoryUseCase deleteCategoryUseCase,
+//                             @Autowired ListCategoriesUseCase listCategoriesUseCase,
+//                             @Autowired GetCategoryByIdUseCase getCategoryByIdUseCase
+//    ) {
+//        return args -> {
+//
+//        };
+//    }
 
 }
