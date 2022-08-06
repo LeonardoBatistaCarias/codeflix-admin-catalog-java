@@ -10,6 +10,7 @@ import com.codeflix.admin.catalog.infrastructure.category.persistence.CategoryRe
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,7 +18,7 @@ import java.util.Optional;
 import static com.codeflix.admin.catalog.infrastructure.utils.SpecificationUtils.like;
 import static org.springframework.data.domain.Sort.Direction;
 
-@Service
+@Component
 public class CategoryMySQLGateway implements CategoryGateway {
 
     private final CategoryRepository repository;

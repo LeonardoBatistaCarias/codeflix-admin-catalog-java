@@ -4,10 +4,14 @@ import com.codeflix.admin.catalog.domain.category.Category;
 import com.codeflix.admin.catalog.domain.category.CategoryID;
 
 public record UpdateCategoryOutPut(
-        CategoryID id
+        String id
 ) {
 
+    public static UpdateCategoryOutPut from(final String anId) {
+        return new UpdateCategoryOutPut(anId);
+    }
+
     public static UpdateCategoryOutPut from(final Category aCategory) {
-        return new UpdateCategoryOutPut(aCategory.getId());
+        return new UpdateCategoryOutPut(aCategory.getId().getValue());
     }
 }
