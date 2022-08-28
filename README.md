@@ -18,7 +18,7 @@
 
 1. Clone the repository:
 ```sh
-git clone https://github.com/codeedu/micro-admin-videos-java.git
+git clone https://github.com/LeonardoBatistaCarias/codeflix-admin-catalog-java.git
 ```
 
 2. Up MySQL Database with Docker:
